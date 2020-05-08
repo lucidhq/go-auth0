@@ -81,6 +81,9 @@ type Client struct {
 	TokenEndpointAuthMethod *string                `json:"token_endpoint_auth_method,omitempty"`
 	ClientMetadata          map[string]string      `json:"client_metadata,omitempty"`
 	Mobile                  map[string]interface{} `json:"mobile,omitempty"`
+
+	// Initiate login uri, must be https and cannot contain a fragment
+	InitiateLoginURI *string `json:"initiate_login_uri,omitempty"`
 }
 
 func (c *Client) String() string {
