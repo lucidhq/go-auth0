@@ -83,7 +83,8 @@ type Client struct {
 	Mobile                  map[string]interface{} `json:"mobile,omitempty"`
 
 	// Initiate login uri, must be https and cannot contain a fragment
-	InitiateLoginURI *string `json:"initiate_login_uri,omitempty"`
+	InitiateLoginURI *string             `json:"initiate_login_uri,omitempty"`
+	RefreshToken     *ClientRefreshToken `json:"refresh_token,omitempty"`
 }
 
 func (c *Client) String() string {
@@ -103,6 +104,36 @@ type ClientJWTConfiguration struct {
 
 	// Algorithm used to sign JWTs. Can be "HS256" or "RS256"
 	Algorithm *string `json:"alg,omitempty"`
+}
+
+type ClientRefreshToken struct {
+	// Refresh token types, one of: reusable, rotating
+	//
+	// Deprecated: use RotationType and ExpirationType instead
+	Type *string `json:"type,omitempty"`
+
+	// Refresh token rotation type. Can be "rotating" or "non-rotating"
+	RotationType *string `json:"rotation_type,omitempty"`
+
+	// Refresh token expiration type. Can be "expiring" or "non-expiring"
+	ExpirationType *string `json:"expiration_type,omitempty"`
+
+	// Period in seconds where the previous refresh token can be exchanged
+	// without triggering breach detection
+	Leeway *int `json:"leeway,omitempty"`
+
+	// Period in seconds for which refresh tokens will remain valid
+	TokenLifetime *int `json:"token_lifetime,omitempty"`
+
+	// Whether or not refresh tokens should remain valid indefinitely. If false,
+	// "TokenLifetime" should be set
+	InfiniteTokenLifetime *bool `json:"infinite_token_lifetime,omitempty"`
+
+	// Whether or not inactive refresh tokens should be remain valid indefinitely
+	InfiniteIdleTokenLifetime *bool `json:"infinite_idle_token_lifetime,omitempty"`
+
+	// Period in seconds after which inactive refresh tokens will expire
+	IdleTokenLifetime *int `json:"idle_token_lifetime,omitempty"`
 }
 
 type ClientManager struct {
