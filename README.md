@@ -5,6 +5,8 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/bf038abb77ffb7c94cde/maintainability)](https://codeclimate.com/github/go-auth0/auth0/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/bf038abb77ffb7c94cde/test_coverage)](https://codeclimate.com/github/go-auth0/auth0/test_coverage)
 
+## (THIS HAS BEEN DEPRECATED. LAS NOW USES github.com/auth0/go-auth0)
+
 ## Documentation
 
 Reference documentation can be found at [godoc.org](https://godoc.org/gopkg.in/auth0.v1). For more information about [Auth0](http://auth0.com/) please visit the [Auth0 Docs](http://docs.auth0.com/) page.
